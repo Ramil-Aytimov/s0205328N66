@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости услуги</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Калькулятор стоимости услуги</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="calculator" aria-labelledby="calculator-title">
+            <h2 id="calculator-title">Рассчитайте стоимость</h2>
+
+            <form id="calculator-form">
+                <fieldset class="form-section">
+                    <legend>1. Выберите услугу</legend>
+                    <div class="radio-option">
+                        <input type="radio" id="service-basic" name="service" value="basic" checked>
+                        <label for="service-basic">Базовая услуга — 500 ₽ за единицу</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="service-delivery" name="service" value="delivery">
+                        <label for="service-delivery">Доставка — от 700 ₽ за единицу</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="service-setup" name="service" value="setup">
+                        <label for="service-setup">Настройка — 1000 ₽ за единицу</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-section">
+                    <label for="quantity">2. Количество:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" step="1" value="1" required>
+                    <small>Введите целое положительное число.</small>
+                </div>
+
+                <div class="form-section conditional-field" id="option-group" hidden>
+                    <label for="delivery-option">3. Выберите вариант доставки:</label>
+                    <select id="delivery-option" name="delivery-option">
+                        <option value="standard">Стандартная доставка (+0 ₽ за единицу)</option>
+                        <option value="express">Экспресс-доставка (+300 ₽ за единицу)</option>
+                        <option value="scheduled">Доставка к определённому времени (+500 ₽ за единицу)</option>
+                    </select>
+                </div>
+
+                <div class="form-section conditional-field" id="property-group" hidden>
+                    <div class="checkbox-option">
+                        <input type="checkbox" id="urgent" name="urgent">
+                        <label for="urgent">Срочное выполнение (+400 ₽ за единицу)</label>
+                    </div>
+                </div>
+            </form>
+
+            <section class="result-panel" aria-labelledby="result-title">
+                <h2 id="result-title">Стоимость заказа</h2>
+                <p id="price" class="price" aria-live="polite">500 ₽</p>
+                <p id="price-details" class="price-details" aria-live="polite">Базовая услуга: 500 ₽ × 1</p>
+                <p id="error-message" class="error-message" role="alert" aria-live="polite"></p>
+            </section>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Учебный проект — калькулятор стоимости услуги</p>
+        </div>
+    </footer>
+</body>
+</html>
