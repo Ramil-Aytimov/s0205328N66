@@ -1,0 +1,125 @@
+/* Включаем рамки и внутренние отступы в размеры элементов. */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Базовое оформление страницы и вертикальная раскладка для нижнего подвала. */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #17212b;
+    background: #f4f7fb;
+}
+
+/* Контейнер центрирует содержимое и ограничивает его ширину. */
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.site-header,
+.site-footer {
+    color: #ffffff;
+    background: #285f8f;
+}
+
+.site-header { border-bottom: 4px solid #d3e7f8; }
+.site-header h1 { margin: 0; font-size: 1.65rem; }
+
+/* Основная часть занимает свободное место, подвал остаётся внизу короткой страницы. */
+main { flex: 1; }
+.site-footer { margin-top: auto; text-align: center; }
+.site-footer p { margin: 0; }
+
+.calculator {
+    max-width: 650px;
+    margin: 24px auto;
+    padding: 24px;
+    border: 1px solid #c8d8e6;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(20, 50, 80, 0.08);
+}
+
+.calculator h2 { margin-top: 0; }
+
+.form-section {
+    margin: 0 0 22px;
+    padding: 16px;
+    border: 1px solid #d5e0e9;
+    border-radius: 8px;
+}
+
+fieldset.form-section { min-width: 0; }
+legend { padding: 0 6px; font-weight: bold; }
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.radio-option input,
+.checkbox-option input {
+    width: auto;
+    margin-top: 5px;
+    flex: 0 0 auto;
+}
+
+.radio-option label,
+.checkbox-option label { cursor: pointer; }
+label { font-weight: 600; }
+
+input[type="number"],
+select {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px 12px;
+    border: 1px solid #8799a9;
+    border-radius: 6px;
+    background: #ffffff;
+    color: inherit;
+    font: inherit;
+}
+
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid #a8d5ff;
+    outline-offset: 2px;
+}
+
+small { display: block; margin-top: 6px; color: #526575; }
+[hidden] { display: none !important; }
+
+.result-panel {
+    padding: 20px;
+    border-radius: 8px;
+    background: #eaf4fc;
+}
+
+.result-panel h2 { margin-bottom: 4px; font-size: 1.2rem; }
+.price {
+    margin: 0;
+    color: #174f7c;
+    font-size: 2rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+.price-details { margin-bottom: 0; color: #3d5365; }
+.error-message { margin-bottom: 0; color: #b00020; font-weight: 700; }
+.error-message:empty { display: none; }
+
+@media (min-width: 650px) {
+    .site-header h1 { font-size: 2rem; }
+    .calculator { padding: 32px; }
+}
